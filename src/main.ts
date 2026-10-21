@@ -5,12 +5,16 @@ import { SPONSORS, bindPro, isPro, resetPro } from './pro';
 import { DEFAULT_SETTINGS, VimwikiImportSettingTab, normalizeSettings, type VimwikiImportSettings } from './settings';
 import { assessPage, cleanPath, combinedReport, planImport, reportText, type Plan, type ImportRecord, type Issue } from './importer';
 import { ImportModal } from './modal';
+import { setupHello } from './hello/index';
+import WHATS_NEW from './whats-new.json';
 export default class VimwikiImportPlugin extends Plugin {
 	settings: VimwikiImportSettings = {...DEFAULT_SETTINGS};
 	pro: SponsorsManager | null = null;
 	records: ImportRecord[] = [];
 	private busy = false;
 	async onload(): Promise<void> {
+		// First: "What's new" reads its state before the settings load (packages/hello). It does not wait.
+		setupHello(this, WHATS_NEW);
 		await this.loadSettings();
 		this.pro=createGitHubSponsors(this.app,this.manifest.id,SPONSORS,this); this.pro.init(); bindPro(this.pro);
 		const tab=new VimwikiImportSettingTab(this.app,this); this.addSettingTab(tab);

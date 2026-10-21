@@ -72,6 +72,8 @@ Compare a few converted notes with their source pages before you remove or move 
 
 ## Settings
 
+After a minor or major update, this plugin opens one What's new tab in the background. The tab and settings card suggest other NoteMods plugins and Zovo Chat and link to notemods.com for feedback ([privacy](https://notemods.com/privacy/)). The tab sends no data. Turn the tab off in Settings.
+
 The dialog remembers source, destination, and daily-note paths after an import. A blank daily-note path disables diary mapping. The default destination is `Vimwiki notes`. Mode selection starts off when you open a new dialog. The plugin settings tab contains the GitHub Sponsors controls and account status.
 
 ## FAQ
