@@ -1,7 +1,7 @@
 import { Notice, Plugin, TFolder, normalizePath } from 'obsidian';
 import { createGitHubSponsors } from './license/github-obsidian';
 import type { SponsorsManager } from './license/index';
-import { SPONSORS, bindPro, isPro, resetPro } from './pro';
+import { SPONSORS, bindPro, isPro, resetPro, proNotice } from './pro';
 import { DEFAULT_SETTINGS, VimwikiImportSettingTab, normalizeSettings, type VimwikiImportSettings } from './settings';
 import { assessPage, cleanPath, combinedReport, planImport, reportText, type Plan, type ImportRecord, type Issue } from './importer';
 import { ImportModal } from './modal';
@@ -26,7 +26,7 @@ export default class VimwikiImportPlugin extends Plugin {
 			this.registerInterval(window.setInterval(() => void pro.refresh(), 6 * 60 * 60 * 1000));
 		});
 		this.addCommand({id:'preview-import',name:'Preview import',callback:()=>new ImportModal(this).open()});
-		this.addCommand({id:'unresolved-report',name:'Create unresolved-link report (pro)',callback:()=>void this.writeCombined().catch(e=>new Notice(String(e)))});
+		this.addCommand({id:'unresolved-report',name:'Create unresolved-link report (pro)',callback:()=>{if(!isPro()){proNotice('The combined report needs Pro.');return;}void this.writeCombined().catch(e=>new Notice(String(e)));}});
 	}
 	onunload(): void {this.pro=null;resetPro();}
 	async loadSettings(): Promise<void> {
