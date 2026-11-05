@@ -84,11 +84,13 @@ Images, attachments, tables, anchors, directives, and rich text can need edits. 
 
 ### What was not tested?
 
-Desktop end-to-end tests passed on Obsidian 1.13.4 and 1.14.4 on macOS. Linux, Windows, and light-theme CI were not run locally. This run did not test phones, tablets, Vimwiki Markdown mode, Vimwiki media mode, attachment copying, live GitHub payment, or a large real migration. The tests use small source fixtures and simulated sponsorship answers. No import speed claim is made.
+Desktop end-to-end tests passed on Obsidian 1.13.4 and 1.14.4 on macOS. Linux, Windows, and light-theme CI were not run locally. This run did not test phones, tablets, Vimwiki Markdown mode, Vimwiki media mode, attachment copying, live GitHub payment, or a large real migration. The tests use small source fixtures and simulated sponsorship answers.
 
 ## Payment, account and network
 
 The core features are free. Pro features need a GitHub Sponsors sponsorship of theluckystrike: $5 a month or more, or $15 once. A total payment of $15 meets the payment requirement for Pro without further payment. Sign-in and the checks below still apply. Your notes stay readable and editable with or without Pro.
+
+[One payment turns on Pro in every NoteMods plugin](https://notemods.com/pro/).
 
 GitHub handles the payment. Sponsor at https://github.com/sponsors/theluckystrike?frequency=one-time&metadata_source=vimwiki-import. You need no account for the free features. Pro needs the GitHub account that sponsors.
 
